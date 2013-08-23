@@ -3,3 +3,18 @@ StackOverflow Careers 2.0 Europe
 
 Download and parse the careers feed and filter the Europe jobs only. Generates
 static HTML files and a new feed.
+
+http://momo.guide42.com/careers-eu/
+
+Requirements
+------------
+
+ * [feedparser](https://code.google.com/p/feedparser/)
+ * [folio](http://pyfolio.org/)
+
+Changelog
+---------
+
+2013-08-23
+
+First version.
