@@ -1,6 +1,8 @@
 *.py[cod]
 
-# VirtualEnv
+careers-europe.db
+
+html/
 venv/
 
 # PyDev
