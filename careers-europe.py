@@ -71,7 +71,7 @@ def parse_db(db):
     for row in rows:
         row_datetime = datetime.strptime(row[2], '%Y-%m-%d %H:%M:%S')
         job = Job(row[0], row[1], row_datetime)
-        jobs.insert(0, job)
+        jobs.append(job)
 
     return jobs
 
@@ -94,7 +94,7 @@ def build_jobs():
     jobs = parse_db(db)
     feed_jobs = parse_feed()
 
-    for feed_job in feed_jobs:
+    for feed_job in reversed(feed_jobs):
         found = filter(lambda job: job.link == feed_job.link, jobs)
         if len(found) == 0:
             try:
