@@ -6,7 +6,7 @@ import os.path
 import sqlite3
 import feedparser
 
-from folio import Folio
+from folio import Folio, _static_builder, _template_builder
 from datetime import datetime
 from collections import namedtuple
 
@@ -121,8 +121,14 @@ def build_proj(jobs):
         'THEMES_PATHS': [os.path.join('templates', 'themes')],
     })
 
+    #: FIXME Workaround until I add a configuration option for the template
+    #:       pattern.
+    proj.builders = [('favicon.ico', _static_builder),
+                     ('*.html', _template_builder),
+                     ('*.xml', _template_builder)]
+
     #: Add a global context with the jobs previously parsed.
-    proj.add_context('*', {'jobs': jobs})
+    proj.add_context('*', {'jobs': jobs, 'updated': datetime.now()})
 
     #: Finally, build!
     return proj.build()

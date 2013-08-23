@@ -1,0 +1,11 @@
+{% extends theme("_base.xml") %}
+
+{% block body %}
+{% for job in jobs %}
+<entry>
+  <title>{{ job.title }}</title>
+  <link href="{{ job.link }}" rel="alternate" type="text/html"/>
+  <published>{{ job.published.isoformat() }}</published>
+</entry>
+{% endfor %}
+{% endblock %}
