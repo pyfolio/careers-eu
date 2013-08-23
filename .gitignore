@@ -1,0 +1,9 @@
+*.py[cod]
+
+# VirtualEnv
+venv/
+
+# PyDev
+.settings/
+.project
+.pydevproject

@@ -1,0 +1,5 @@
+StackOverflow Careers 2.0 Europe
+================================
+
+Download and parse the careers feed and filter the Europe jobs only. Generates
+static HTML files and a new feed.
