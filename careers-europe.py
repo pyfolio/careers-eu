@@ -11,7 +11,7 @@ from datetime import datetime
 from collections import namedtuple
 
 __authors__ = ('Juan M')
-__license__ = 'Public Domain'
+__license__ = 'WTFPL'
 __version__ = '2013-08-23'
 
 #: Jobs Feed from StackOverflow Careers 2.0
