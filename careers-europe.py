@@ -95,7 +95,7 @@ def build_jobs():
     feed_jobs = parse_feed()
 
     for feed_job in reversed(feed_jobs):
-        found = filter(lambda job: job.link == feed_job.link, jobs)
+        found = [job for job in jobs if job.link == feed_job.link]
         if len(found) == 0:
             try:
                 db.execute('INSERT INTO jobs VALUES (?, ?, ?)', feed_job)
