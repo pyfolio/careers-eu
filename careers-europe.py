@@ -6,13 +6,13 @@ import os.path
 import sqlite3
 import feedparser
 
-from folio import Folio, _static_builder, _template_builder
+from folio import Folio
 from datetime import datetime
 from collections import namedtuple
 
 __authors__ = ('Juan M')
 __license__ = 'WTFPL'
-__version__ = '2013-08-23'
+__version__ = '2013-10-14'
 
 #: Jobs Feed from StackOverflow Careers 2.0
 FEED_URL = 'http://careers.stackoverflow.com/jobs/feed'
@@ -119,13 +119,8 @@ def build_proj(jobs):
     proj.config.update({
         'THEME': 'basic',
         'THEMES_PATHS': [os.path.join('templates', 'themes')],
+        'TEMPLATE_BUILDER_PATTERN': ('*.html', '*.xml'),
     })
-
-    #: FIXME Workaround until I add a configuration option for the template
-    #:       pattern.
-    proj.builders = [('favicon.ico', _static_builder),
-                     ('*.html', _template_builder),
-                     ('*.xml', _template_builder)]
 
     #: Add a global context with the jobs previously parsed.
     proj.add_context('*', {'jobs': jobs, 'updated': datetime.now()})
